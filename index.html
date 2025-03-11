@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Your Name">
+    <title>WDD231 Homepage</title>
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/course.js" defer></script>
+</head>
+<body>
+    <header>
+       <img src="images/IMG_20201130_165137_284.jpg" alt="profile picture">
+       <span>Malcom Engwedu</span> 
+       <button id="menu-button" aria-label="Navigation Menu">☰</button>
+    </header>
+    <nav>
+        <ul id="primary-nav">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="#">Chamber</a></li>
+            <li><a href="https://github.com/Emalcom/wdd231.git">Github</a></li>
+            <li><a href="https://www.linkedin.com/in/engwedu-malcom-a6221a212?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Home</h1>
+
+        <section class="coursework">
+            <h2>Course Work</h2>
+            <ul>
+                <li>Coming soon...</li>
+                <li>Coming soon...</li>
+                <li>Coming soon...</li>
+            </ul>
+        </section>
+
+        <section class="location">
+            <h2>Kampala, Uganda</h2>
+            <figure>
+                <img src="images/landscape-view-kampala-uganda_1028938-232806.jpg" alt="view of Kampala">
+                <figcaption>Kampala View</figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h2>Web and Computer Programming Certificate</h2>
+            <div class="course-filter">
+                <button id="all-courses" class="active">All</button>
+                <button id="cse-courses">CSE</button>
+                <button id="wdd-courses">WDD</button>
+            </div>
+            <div id="courses"></div>
+            <p>Total Credits: <span id="total-Credits">0</span></p>
+            <div id="courses-container">
+            </div>
+        
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentyear"></span> Malcom Engwedu, Kampala</p>
+        <p id="lastModified"></p>
+    </footer>
+    
+</body>
+</html>
