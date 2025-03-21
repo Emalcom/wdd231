@@ -1,23 +1,34 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const menuButton = document.getElementById('menu-button');
-    const primaryNav = document.getElementById('primary-nav');
+// Common JavaScript functions for all pages
+
+// Toggle menu for responsive navigation
+document.getElementById('hamburgerBtn').addEventListener('click', () => {
+    document.getElementById('primaryNav').classList.toggle('responsive');
     
-    menuButton.addEventListener('click', () => {
-      primaryNav.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', 
-        menuButton.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
-      );
+    // Toggle between hamburger and X icons
+    const spans = document.querySelectorAll('#hamburgerBtn span');
+    spans.forEach(span => {
+        span.style.display = span.style.display === 'none' ? 'inline' : 'none';
     });
     
-    // Add wayfinding - Highlight the current page
-    const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('nav a');
-    
-    navLinks.forEach(link => {
-      if (link.getAttribute('href') === currentPath.split('/').pop()) {
-        link.classList.add('active');
-      } else if (currentPath.split('/').pop() === '' && link.getAttribute('href') === 'index.html') {
-        link.classList.add('active');
-      }
-    });
-  });
+    // Initialize on page load - show hamburger, hide X
+    if (!document.getElementById('primaryNav').classList.contains('responsive')) {
+        spans[0].style.display = 'inline';
+        spans[1].style.display = 'none';
+    } else {
+        spans[0].style.display = 'none';
+        spans[1].style.display = 'inline';
+    }
+});
+
+// Initialize hamburger menu icons
+window.addEventListener('load', () => {
+    const spans = document.querySelectorAll('#hamburgerBtn span');
+    spans[0].style.display = 'inline';
+    spans[1].style.display = 'none';
+});
+
+// Set current year in footer
+document.getElementById('currentYear').textContent = new Date().getFullYear() + " Chamber of Commerce | Malcom Engwedu | WDD 231";
+
+// Set last modified date in footer
+document.getElementById('lastModified').textContent = document.lastModified;

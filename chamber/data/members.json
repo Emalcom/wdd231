@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Riverdale Community Bank",
+        "address": "123 Main Street, Riverdale, ST 12345",
+        "phone": "(555) 123-4567",
+        "website": "https://www.riverdalebank.com",
+        "image": "images/bank-building.jpg",
+        "membershipLevel": 3,
+        "description": "Providing banking services to the Riverdale community for over 50 years."
+    },
+    {
+        "name": "Tech Innovations Inc.",
+        "address": "456 Innovation Parkway, Riverdale, ST 12345",
+        "phone": "(555) 987-6543",
+        "website": "https://www.techinnovations.com",
+        "image": "images/tech-innovations.png",
+        "membershipLevel": 3,
+        "description": "Leading provider of technology solutions for small businesses."
+    },
+    {
+        "name": "Riverdale Coffee House",
+        "address": "789 Oak Avenue, Riverdale, ST 12345",
+        "phone": "(555) 456-7890",
+        "website": "https://www.riverdalecoffee.com",
+        "image": "images/riverdale-coffee.png",
+        "membershipLevel": 2,
+        "description": "Locally sourced coffee and pastries in a cozy atmosphere."
+    },
+    {
+        "name": "Smith & Associates Law Firm",
+        "address": "321 Legal Lane, Riverdale, ST 12345",
+        "phone": "(555) 234-5678",
+        "website": "https://www.smithlawfirm.com",
+        "image": "images/smith-law.png",
+        "membershipLevel": 2,
+        "description": "Expert legal services for businesses and individuals."
+    },
+    {
+        "name": "Green Valley Landscaping",
+        "address": "654 Garden Road, Riverdale, ST 12345",
+        "phone": "(555) 876-5432",
+        "website": "https://www.greenvalleylandscaping.com",
+        "image": "images/green-valley.png",
+        "membershipLevel": 1,
+        "description": "Professional landscaping and garden maintenance services."
+    },
+    {
+        "name": "Riverdale Health Clinic",
+        "address": "987 Wellness Way, Riverdale, ST 12345",
+        "phone": "(555) 765-4321",
+        "website": "https://www.riverdaleclinic.com",
+        "image": "images/riverdale-clinic.png",
+        "membershipLevel": 3,
+        "description": "Comprehensive healthcare services for the entire family."
+    },
+    {
+        "name": "Fresh Market Grocery",
+        "address": "135 Market Street, Riverdale, ST 12345",
+        "phone": "(555) 345-6789",
+        "website": "https://www.freshmarketgrocery.com",
+        "image": "images/fresh-market.png",
+        "membershipLevel": 2,
+        "description": "Fresh, local produce and specialty foods."
+    },
+    {
+        "name": "Riverdale Auto Repair",
+        "address": "246 Mechanic Boulevard, Riverdale, ST 12345",
+        "phone": "(555) 432-1098",
+        "website": "https://www.riverdaleauto.com",
+        "image": "images/auto-repair.jpg",
+        "membershipLevel": 1,
+        "description": "Quality auto repair and maintenance services."
+    }
+]

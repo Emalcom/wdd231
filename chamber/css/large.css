@@ -1,0 +1,43 @@
+/* Large Screen Styles - for screens wider than 960px */
+@media only screen and (min-width: 960px) {
+    /* Header */
+    header {
+        padding: 1rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo h1 {
+        font-size: 2rem;
+    }
+    
+    /* Navigation */
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        gap: 1.5rem;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    nav button{
+        display: none;
+    }
+    
+    /* Directory */
+    #directory.grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Make cards more interactive */
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+}

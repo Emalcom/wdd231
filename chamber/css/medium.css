@@ -1,0 +1,62 @@
+/* Medium Screen Styles - for screens wider than 560px */
+@media only screen and (min-width: 560px) {
+    /* Header */
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+    }
+    
+    .logo {
+        flex-direction: row;
+        margin-bottom: 0;
+    }
+    
+    .logo img {
+        margin-right: 1rem;
+        margin-bottom: 0;
+    }
+    
+    .logo h1 {
+        font-size: 1.8rem;
+        text-align: left;
+    }
+    
+    /* Navigation */
+    nav {
+        width: auto;
+    }
+    
+    nav button {
+        display: none;
+    }
+    
+    nav ul {
+        display: flex;
+        gap: 1rem;
+    }
+    
+    nav ul li {
+        margin: 0;
+    }
+    
+    nav ul li a {
+        padding: 0.5rem 1rem;
+    }
+    
+    /* Directory */
+    #directory.grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Footer */
+    .footer-top {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+    
+    .footer-logo {
+        margin-bottom: 0;
+    }
+}

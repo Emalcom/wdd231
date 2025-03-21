@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background -->
+  <rect width="100" height="100" fill="#005f73" rx="15" ry="15"/>
+  
+  <!-- Building/Chamber Icon -->
+  <path d="M20 80 L20 40 L50 25 L80 40 L80 80 Z" fill="#0a9396" stroke="#ffffff" stroke-width="2"/>
+  
+  <!-- Door -->
+  <rect x="43" y="60" width="14" height="20" fill="#ee9b00"/>
+  
+  <!-- Windows -->
+  <rect x="30" y="45" width="10" height="10" fill="#ffffff"/>
+  <rect x="60" y="45" width="10" height="10" fill="#ffffff"/>
+  
+  <!-- Roof/Building Top -->
+  <path d="M15 42 L50 22 L85 42" fill="none" stroke="#ffffff" stroke-width="3"/>
+</svg>
