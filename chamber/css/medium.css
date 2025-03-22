@@ -2,7 +2,6 @@
 @media only screen and (min-width: 560px) {
     /* Header */
     header {
-        flex-direction: row;
         justify-content: space-between;
         padding: 1rem 2rem;
     }
@@ -51,9 +50,10 @@
     
     /* Footer */
     .footer-top {
-        flex-direction: row;
+        display: flex;
+        align-items: center;
         justify-content: space-between;
-        text-align: left;
+        text-align: center;
     }
     
     .footer-logo {

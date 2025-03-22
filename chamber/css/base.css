@@ -84,7 +84,7 @@ nav ul{
     display: none;
     
 }
-nav ul.responsive{
+nav ul.open{
     display: block;
 }
 nav ul li{
@@ -100,9 +100,114 @@ nav ul li a:hover{
     background-color: var(--secondary-color);
     text-decoration: none;
 }
-nav ul li a.active{
+nav ul li.active a{
     background-color: var(--accent-color);
 }
+#hamburgerBtn span:nth-child(1) {
+    display: block;
+  }
+  
+  #hamburgerBtn span:nth-child(2) {
+    display: none;
+  }
+  
+  #hamburgerBtn.open span:nth-child(1) {
+    display: none;
+  }
+  
+  #hamburgerBtn.open span:nth-child(2) {
+    display: block;
+  }
+/* Directory View Toggle Buttons with Icons */
+
+.directory-controls {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem 0;
+    gap: 0.5rem;
+  }
+  
+  .directory-controls button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .directory-controls button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .directory-controls button.active {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+  }
+  
+  /* Grid Icon - 9 squares */
+  #gridBtn::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg fill='currentColor'%3E%3Crect x='1' y='1' width='4' height='4' rx='0.5'/%3E%3Crect x='6' y='1' width='4' height='4' rx='0.5'/%3E%3Crect x='11' y='1' width='4' height='4' rx='0.5'/%3E%3Crect x='1' y='6' width='4' height='4' rx='0.5'/%3E%3Crect x='6' y='6' width='4' height='4' rx='0.5'/%3E%3Crect x='11' y='6' width='4' height='4' rx='0.5'/%3E%3Crect x='1' y='11' width='4' height='4' rx='0.5'/%3E%3Crect x='6' y='11' width='4' height='4' rx='0.5'/%3E%3Crect x='11' y='11' width='4' height='4' rx='0.5'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  /* List Icon - 3 horizontal lines */
+  #listBtn::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg fill='currentColor'%3E%3Crect x='1' y='2' width='14' height='2' rx='0.5'/%3E%3Crect x='1' y='7' width='14' height='2' rx='0.5'/%3E%3Crect x='1' y='12' width='14' height='2' rx='0.5'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  /* Button colors when active */
+  #gridBtn.active::before,
+  #listBtn.active::before {
+    filter: invert(1); /* Make icons white when button is active */
+  }
+  
+  /* Directory layouts */
+  #directory-container.grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  #directory-container.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  #directory-container.list-view .business-card {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+  }
+  
+  #directory-container.grid-view .business-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
 main{
     padding: 1rem;
     max-width: 1200px;
