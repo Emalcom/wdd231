@@ -10,20 +10,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Get current year for copyright
-   // const currentYear = document.querySelector('#currentyear');
-   // if (currentYear) {
-   //     currentYear.textContent = new Date().getFullYear();
-    //}
+     const currentYear = document.querySelector('#currentyear');
+     if (currentYear) {
+        currentYear.textContent = new Date().getFullYear();
+     }
     
     // Get last modified date
-    //const lastModified = document.querySelector('#lastModified');
-//if (lastModified) {
-    //    lastModified.textContent = document.lastModified;
-    //}
+       const lastModified = document.querySelector('#lastModified');
+       if (lastModified) {
+       lastModified.textContent = document.lastModified;
+    }
     
     // Add additional directory-specific code to the right script file
     // Directory toggle functionality should go in directory.js
-    document.getElementById('currentyear').textContent = new Date().getFullYear();
-document.getElementById('lastModified').textContent = `Last Update: ${document.lastModified}`;
-
+   
 });
