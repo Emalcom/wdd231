@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chamber of Commerce home page showcasing local businesses and community events">
+    <meta name="author" content="Malcom Engwedu">
+
+    <meta property="og:title" content="Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/chamber-logo.webp">
+    <meta property="og:url" content="https://yoursite.com/chamber/">
+
+    <title>Chamber of Commerce</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/medium.css">
+    <link rel="stylesheet" href="css/large.css">
+
+    <script src="script/script.js" defer></script>
+    <script src="script/home.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/favicon.svg" alt="Chamber of Commerce Logo">
+            <h1>Chamber of Commerce</h1>
+        </div>
+        <nav>
+            <button id="hamburgerBtn"><span>&#9776;</span><span>X</span></button>
+            <ul id="primaryNav">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="join.html">Join</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="home-main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="images/Hero-image.jpg" alt="City skyline" class="hero-img">
+            <div class="hero-overlay">
+                <h2>Welcome to Our Chamber of Commerce</h2>
+                <p>Supporting local businesses and community growth</p>
+                <a href="join.html" class="cta-button">Join the Chamber</a>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section class="events">
+            <h2>Upcoming Events</h2>
+            <div class="event-card">
+                <h3>Business Networking Breakfast</h3>
+                <p class="event-date">April 15, 2025 - 8:00 AM</p>
+                <p>Join us for our monthly networking breakfast at the Grand Hotel. Connect with local business leaders and entrepreneurs.</p>
+                <a href="#" class="event-link">Learn More</a>
+            </div>
+            <div class="event-card">
+                <h3>Small Business Workshop</h3>
+                <p class="event-date">April 22, 2025 - 1:00 PM</p>
+                <p>Learn essential skills for growing your small business in today's competitive market.</p>
+                <a href="#" class="event-link">Learn More</a>
+            </div>
+        </section>
+
+        <!-- Weather Section -->
+        <section class="weather">
+            <h2>Local Weather</h2>
+            <div class="current-weather">
+                <div class="weather-icon-container">
+                    <img id="weather-icon" src="images/2682834_cloud_day_forecast_rain_rainy_icon.png" alt="Weather icon">
+                </div>
+                <div class="weather-info">
+                    <p id="temperature">--°F</p>
+                    <p id="weather-description">Loading weather data...</p>
+                </div>
+            </div>
+            <div class="forecast">
+                <h3>3-Day Forecast</h3>
+                <div class="forecast-container" id="forecast-container">
+                    <!-- Forecast data will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Spotlights Section -->
+        <section class="spotlights">
+            <h2>Business Spotlights</h2>
+            <div id="spotlights-container">
+                <!-- Spotlight cards will be inserted here by JavaScript -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-top">
+            <div class="footer-logo">
+                <img src="images/favicon.svg" alt="Chamber of Commerce Logo">
+                <h3>Chamber of Commerce</h3>
+                <p>123 Main Street</p>
+                <p>City, ST 12345</p>
+            </div>
+            <div class="contact-info">
+                <p>info@chamberofcommerce.org</p>
+                <p>(555) 123-4567</p>
+                <div class="social-media">
+                    <a href="#"><img src="images/facebook-svgrepo-com.svg" alt="Facebook"></a>
+                    <a href="#"><img src="images/twitter-logo-svgrepo-com.svg" alt="Twitter"></a>
+                    <a href="#"><img src="images/instagram-2-1-logo-svgrepo-com.svg" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentyear"></span></p>
+            <p>Last Modified: <span id="lastModified"></span></p>
+        </div>
+    </footer>
+</body>
+</html>

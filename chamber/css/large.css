@@ -40,3 +40,39 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 }
+@media only screen and (min-width: 64rem) {
+    /* Home main layout for large screens */
+    .home-main {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    .hero {
+        grid-column: 1 / 4;
+        grid-row: 1 / 2;
+    }
+
+    .events {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+
+    .weather {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+    
+    .spotlights {
+        grid-column: 2 / 4;
+        grid-row: 2 / 4;
+    }
+
+    #spotlights-container {
+        flex-direction: row;
+        height: auto;
+    }
+
+    .spotlight-card {
+        flex: 1;
+        height: auto;
+    }
+}

@@ -1,12 +1,37 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburgerBtn = document.querySelector('#hamburgerBtn'); // Hamburger button
-    const primaryNav = document.querySelector('#primaryNav'); // Navigation menu
-
-    // Toggle the 'open' class on both the button and menu
-    hamburgerBtn.addEventListener('click', function() {
-        primaryNav.classList.toggle('open'); // Add/remove 'open' class to menu
-        hamburgerBtn.classList.toggle('open'); // Add/remove 'open' class to button
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const primaryNav = document.getElementById('primaryNav');
+    
+    // Hamburger Menu Toggle
+    hamburgerBtn.addEventListener('click', () => {
+        primaryNav.classList.toggle('open');
+        hamburgerBtn.classList.toggle('open');
     });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+        const isClickInsideNav = primaryNav.contains(event.target);
+        const isClickHamburger = hamburgerBtn.contains(event.target);
+        
+        if (!isClickInsideNav && !isClickHamburger && 
+            primaryNav.classList.contains('open')) {
+            primaryNav.classList.remove('open');
+            hamburgerBtn.classList.remove('open');
+        }
+    });
+
+    // Add hover effect to navigation items
+    const navItems = document.querySelectorAll('#primaryNav li');
+    navItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.style.transform = 'scale(1.05)';
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            item.style.transform = 'scale(1)';
+        });
+    });
+
 
 
     // Get current year for copyright
