@@ -1,0 +1,369 @@
+/* Join page specific styles */
+
+
+.join-main {
+        background-image: url(background.jpg);
+        padding: 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+.join-main h1, .join-main h2 {
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.join-main > p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+}
+
+.join-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Form styles */
+.form-section {
+    background-color: var(--background-light);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--body-font);
+    font-size: 1rem;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0, 95, 115, 0.3);
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Membership cards styles */
+.membership-cards h2 {
+    margin-bottom: 1.5rem;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.membership-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: card-appear 0.5s forwards;
+}
+
+@keyframes card-appear {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.np-card { animation-delay: 0.1s; }
+.bronze-card { animation-delay: 0.3s; }
+.silver-card { animation-delay: 0.5s; }
+.gold-card { animation-delay: 0.7s; }
+
+.membership-card h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+.info-btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.info-btn:hover {
+    background-color: #f9b234;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+    position: relative;
+    animation: modal-appear 0.3s ease-out;
+}
+
+@keyframes modal-appear {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-modal:hover {
+    color: var(--primary-color);
+}
+
+.modal h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.modal h3 {
+    color: var(--secondary-color);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.modal ul {
+    padding-left: 1.5rem;
+}
+
+.modal li {
+    margin-bottom: 0.5rem;
+}
+
+/* Card color variations */
+.np-card {
+    border-top: 5px solid #6B8E23;
+}
+
+.bronze-card {
+    border-top: 5px solid #CD7F32;
+}
+
+.silver-card {
+    border-top: 5px solid #C0C0C0;
+}
+
+.gold-card {
+    border-top: 5px solid #FFD700;
+}
+
+/* Media queries for responsive design */
+@media screen and (min-width: 768px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .join-container {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .form-section {
+        flex: 3;
+    }
+    
+    .membership-cards {
+        flex: 2;
+    }
+    
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* Thank you page specific styles */
+
+.thankyou-main {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.thankyou-container {
+    background-color: var(--background-light);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.thankyou-main h1 {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 0;
+}
+
+.confirmation-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.confirmation-icon {
+    width: 100px;
+    height: 100px;
+    margin: 1.5rem 0;
+}
+
+.application-details, .next-steps {
+    margin-bottom: 2rem;
+}
+
+.application-details h2, .next-steps h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.application-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.application-table th, .application-table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.application-table th {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+.application-table tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.next-steps ol {
+    padding-left: 1.5rem;
+}
+
+.next-steps li {
+    margin-bottom: 0.5rem;
+}
+
+.return-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    align-items: center;
+}
+
+.return-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s;
+    width: 100%;
+    max-width: 300px;
+}
+
+.return-btn:hover {
+    background-color: var(--secondary-color);
+    text-decoration: none;
+}
+
+/* Media queries for responsive design */
+@media screen and (min-width: 768px) {
+    .confirmation-message {
+        flex-direction: row;
+        text-align: left;
+        justify-content: center;
+        gap: 2rem;
+    }
+    
+    .confirmation-message p {
+        flex: 1;
+        max-width: 500px;
+    }
+    
+    .return-links {
+        
+    }
+}

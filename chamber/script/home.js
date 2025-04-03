@@ -15,7 +15,7 @@ const membersData = {
             "address": "456 Innovation Parkway, Riverdale, ST 12345",
             "phone": "(555) 987-6543",
             "website": "https://www.techinnovations.com",
-            "image": "Technology.jpg",
+            "image": "technology.jpg",
             "membershipLevel": 3,
             "description": "Leading provider of technology solutions for small businesses."
         },
@@ -33,7 +33,7 @@ const membersData = {
             "address": "321 Legal Lane, Riverdale, ST 12345",
             "phone": "(555) 234-5678",
             "website": "https://www.smithlawfirm.com",
-            "image": "Legal-justices.jpg",
+            "image": "legal-justices.jpg",
             "membershipLevel": 2,
             "description": "Expert legal services for businesses and individuals."
         }
@@ -45,57 +45,78 @@ function capitalizeWords(str) {
     return str.replace(/\b\w/g, char => char.toUpperCase());
 }
 
-// Weather API Function
+// Weather API Function with error handling
 async function fetchWeather() {
-    const apiKey = 'YOUR_OPENWEATHERMAP_API_KEY'; // Replace with actual API key
+    // IMPORTANT: Replace 'YOUR_API_KEY' with your actual OpenWeatherMap API key
+    const apiKey = 'YOUR_ACTUAL_OPENWEATHERMAP_API_KEY'; // <-- Replace this
     const city = 'Riverdale';
     const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
 
     try {
         const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Weather data fetch failed');
+        }
         const data = await response.json();
 
-        // Current Weather
-        const currentTemp = Math.round(data.list[0].main.temp);
-        const weatherDescription = capitalizeWords(data.list[0].weather[0].description);
-        const weatherIcon = data.list[0].weather[0].icon;
+        // Safely access nested properties
+        const currentWeather = data.list?.[0];
+        if (!currentWeather) {
+            throw new Error('No weather data available');
+        }
 
-        document.getElementById('temperature').textContent = `${currentTemp}°F`;
-        document.getElementById('weather-description').textContent = weatherDescription;
-        document.getElementById('weather-icon').src = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
+        const currentTemp = Math.round(currentWeather.main?.temp || 0);
+        const weatherDescription = capitalizeWords(currentWeather.weather?.[0]?.description || 'Unknown');
+        const weatherIcon = currentWeather.weather?.[0]?.icon || '01d';
+
+        // Update UI elements with safe checks
+        const temperatureEl = document.getElementById('temperature');
+        const descriptionEl = document.getElementById('weather-description');
+        const iconEl = document.getElementById('weather-icon');
+
+        if (temperatureEl) temperatureEl.textContent = `${currentTemp}°F`;
+        if (descriptionEl) descriptionEl.textContent = weatherDescription;
+        if (iconEl) iconEl.src = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
 
         // 3-Day Forecast
         const forecastContainer = document.getElementById('forecast-container');
-        forecastContainer.innerHTML = ''; // Clear previous forecast
+        if (forecastContainer) {
+            forecastContainer.innerHTML = ''; // Clear previous forecast
 
-        // Select forecast for next 3 days at noon
-        const forecastDays = data.list.filter(reading => 
-            reading.dt_txt.includes('12:00:00')
-        ).slice(0, 3);
+            // Select forecast for next 3 days at noon
+            const forecastDays = data.list
+                .filter(reading => reading.dt_txt.includes('12:00:00'))
+                .slice(0, 3);
 
-        forecastDays.forEach(day => {
-            const forecastTemp = Math.round(day.main.temp);
-            const forecastDate = new Date(day.dt * 1000);
-            const dayName = forecastDate.toLocaleDateString('en-US', { weekday: 'short' });
+            forecastDays.forEach(day => {
+                const forecastTemp = Math.round(day.main?.temp || 0);
+                const forecastDate = new Date(day.dt * 1000);
+                const dayName = forecastDate.toLocaleDateString('en-US', { weekday: 'short' });
 
-            const forecastElement = document.createElement('div');
-            forecastElement.classList.add('forecast-day');
-            forecastElement.innerHTML = `
-                <p>${dayName}</p>
-                <p>${forecastTemp}°F</p>
-            `;
-            forecastContainer.appendChild(forecastElement);
-        });
+                const forecastElement = document.createElement('div');
+                forecastElement.classList.add('forecast-day');
+                forecastElement.innerHTML = `
+                    <p class="forecast-date">${dayName}</p>
+                    <p class="forecast-temp">${forecastTemp}°F</p>
+                `;
+                forecastContainer.appendChild(forecastElement);
+            });
+        }
     } catch (error) {
         console.error('Error fetching weather data:', error);
-        document.getElementById('temperature').textContent = 'N/A';
-        document.getElementById('weather-description').textContent = 'Unable to load weather';
+        const temperatureEl = document.getElementById('temperature');
+        const descriptionEl = document.getElementById('weather-description');
+        
+        if (temperatureEl) temperatureEl.textContent = 'N/A';
+        if (descriptionEl) descriptionEl.textContent = 'Weather unavailable';
     }
 }
 
 // Function to display random business spotlights
 function displaySpotlights() {
     const spotlightsContainer = document.getElementById('spotlights-container');
+    if (!spotlightsContainer) return;
+
     spotlightsContainer.innerHTML = ''; // Clear previous spotlights
 
     // Filter gold and silver members
@@ -117,21 +138,24 @@ function displaySpotlights() {
         const spotlightCard = document.createElement('div');
         spotlightCard.classList.add('spotlight-card');
         spotlightCard.innerHTML = `
-            <img src="images/${member.image}" alt="${member.name} logo">
-            <h3>${member.name}</h3>
+            <img src="images/${member.image}" alt="${member.name} logo" class="spotlight-logo">
+            <h3 class="spotlight-name">${member.name}</h3>
             <p>${member.description}</p>
             <div class="member-contact">
-                <p>${member.address}</p>
-                <p>${member.phone}</p>
-                <a href="${member.website}" target="_blank">Visit Website</a>
-                <p>Membership Level: ${member.membershipLevel === 3 ? 'Gold' : 'Silver'}</p>
+                <p class="spotlight-contact">${member.address}</p>
+                <p class="spotlight-contact">${member.phone}</p>
+                <a href="${member.website}" target="_blank" class="spotlight-website">Visit Website</a>
+                <p class="spotlight-membership">
+                    Membership Level: ${member.membershipLevel === 3 ? 'Gold' : 'Silver'}
+                </p>
             </div>
         `;
         spotlightsContainer.appendChild(spotlightCard);
     });
 }
 
-
-    // Initialize dynamic content
+// Initialize dynamic content when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
     fetchWeather();
     displaySpotlights();
+});
