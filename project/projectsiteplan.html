@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediTrack Site Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Color Schema Implementation */
+        :root {
+            --medical-blue: #2C5282;
+            --healing-green: #38A169;
+            --clean-white: #FFFFFF;
+            --alert-red: #E53E3E;
+            --calm-gray: #718096;
+            --light-gray: #EDF2F7;
+        }
+
+        /* Typography Implementation */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-gray);
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--medical-blue);
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 32px;
+            text-align: center;
+            color: var(--clean-white);
+            background-color: var(--medical-blue);
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 24px;
+            border-bottom: 2px solid var(--healing-green);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            font-size: 20px;
+            color: var(--healing-green);
+        }
+
+        code, .monospace {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #f1f1f1;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--clean-white);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        section {
+            padding: 30px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Color Schema Display */
+        .color-palette {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .color-swatch {
+            width: 150px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .color-display {
+            height: 100px;
+        }
+
+        .color-info {
+            padding: 10px;
+            background-color: white;
+            text-align: center;
+        }
+
+        /* Typography Display */
+        .font-sample {
+            margin: 25px 0;
+            padding: 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+        }
+
+        /* Wireframes */
+        .wireframes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .wireframe {
+            border: 1px solid var(--calm-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .wireframe-header {
+            background-color: var(--medical-blue);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .wireframe-content {
+            padding: 20px;
+            background-color: white;
+        }
+
+        .wireframe-mobile {
+            width: 320px;
+        }
+
+        .wireframe-desktop {
+            width: 600px;
+        }
+
+        pre {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--healing-green);
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        th {
+            background-color: var(--medical-blue);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--medical-blue);
+            color: white;
+            border-radius: 0 0 8px 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MediTrack Site Plan</h1>
+        
+        <section id="site-name">
+            <h2>Site Name</h2>
+            <p><strong>MediTrack</strong> - Hospital Management System</p>
+            <p>The name "MediTrack" was selected to convey the system's primary purpose of efficiently tracking and managing medical information and workflows. The combination of "Medi" (for medical) and "Track" suggests a platform that monitors, organizes, and follows medical processes - exactly what our hospital management system aims to do. The name is concise, memorable, and clearly communicates the healthcare focus of the application.</p>
+            <p>Potential domain: <code>https://emalcom.github.io/wdd231/project/projectsiteplan.html.com</code></p>
+        </section>
+        
+        <section id="site-purpose">
+            <h2>Site Purpose</h2>
+            <p>MediTrack serves as a comprehensive web-based hospital management system that streamlines healthcare administrative workflows through four key components:</p>
+            <ol>
+                <li><strong>Patient Management:</strong> Providing secure registration, profile management, and search capabilities for patient information.</li>
+                <li><strong>Appointment Scheduling:</strong> Offering interactive calendars for booking appointments with availability checking and automated reminders.</li>
+                <li><strong>Medical Records:</strong> Enabling secure storage and retrieval of patient medical histories, documentation of treatments, and lab result tracking.</li>
+                <li><strong>Administrative Dashboard:</strong> Delivering real-time analytics on patient flow, staff scheduling tools, and resource allocation monitoring.</li>
+            </ol>
+            <p>The platform aims to improve healthcare efficiency, reduce administrative overhead, minimize record-keeping errors, and enhance patient care through better information management, all while maintaining data security and privacy standards.</p>
+        </section>
+        
+        <section id="scenarios">
+            <h2>Scenarios</h2>
+            <h3>Scenario 1: Front Desk Administrator</h3>
+            <p>"I need to register a new patient who just arrived at the hospital. How can I quickly input their information and generate a patient ID without duplicating existing records?"</p>
+            
+            <h3>Scenario 2: Doctor</h3>
+            <p>"I have a patient consultation in 10 minutes. Where can I efficiently access their complete medical history, including previous diagnoses, treatments, and recent lab results?"</p>
+            
+            <h3>Scenario 3: Hospital Manager</h3>
+            <p>"Our emergency department seems to be experiencing longer wait times this month. How can I view analytics to identify bottlenecks in patient processing and optimize resource allocation?"</p>
+            
+            <h3>Scenario 4: Nurse</h3>
+            <p>"A patient needs to schedule a follow-up appointment with their specialist next week. How can I check doctor availability across multiple departments and book the appointment efficiently?"</p>
+        </section>
+        
+        <section id="color-schema">
+            <h2>Color Schema</h2>
+            <p>The following color palette has been carefully selected to create a professional, calm, and trustworthy healthcare application interface:</p>
+            
+            <div class="color-palette">
+                <div class="color-swatch">
+                    <div class="color-display" style="background-color: #2C5282;"></div>
+                    <div class="color-info">
+                        <p><strong>Medical Blue</strong></p>
+                        <p>#2C5282</p>
+                    </div>
+                </div>
+                
+                <div class="color-swatch">
+                    <div class="color-display" style="background-color: #38A169;"></div>
+                    <div class="color-info">
+                        <p><strong>Healing Green</strong></p>
+                        <p>#38A169</p>
+                    </div>
+                </div>
+                
+                <div class="color-swatch">
+                    <div class="color-display" style="background-color: #FFFFFF;"></div>
+                    <div class="color-info">
+                        <p><strong>Clean White</strong></p>
+                        <p>#FFFFFF</p>
+                    </div>
+                </div>
+                
+                <div class="color-swatch">
+                    <div class="color-display" style="background-color: #E53E3E;"></div>
+                    <div class="color-info">
+                        <p><strong>Alert Red</strong></p>
+                        <p>#E53E3E</p>
+                    </div>
+                </div>
+                
+                <div class="color-swatch">
+                    <div class="color-display" style="background-color: #718096;"></div>
+                    <div class="color-info">
+                        <p><strong>Calm Gray</strong></p>
+                        <p>#718096</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Color Usage</h3>
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Color</th>
+                    <th>Purpose</th>
+                </tr>
+                <tr>
+                    <td>Main Navigation</td>
+                    <td>Medical Blue (#2C5282)</td>
+                    <td>Creates a consistent, professional header</td>
+                </tr>
+                <tr>
+                    <td>Page Backgrounds</td>
+                    <td>Clean White (#FFFFFF)</td>
+                    <td>Ensures readability and medical sterility</td>
+                </tr>
+                <tr>
+                    <td>Primary Buttons</td>
+                    <td>Healing Green (#38A169)</td>
+                    <td>Draws attention to primary actions</td>
+                </tr>
+                <tr>
+                    <td>Critical Alerts</td>
+                    <td>Alert Red (#E53E3E)</td>
+                    <td>Immediately identifies urgent matters</td>
+                </tr>
+                <tr>
+                    <td>Section Headers</td>
+                    <td>Medical Blue (#2C5282)</td>
+                    <td>Maintains brand consistency</td>
+                </tr>
+                <tr>
+                    <td>Secondary Text</td>
+                    <td>Calm Gray (#718096)</td>
+                    <td>Provides visual hierarchy for less important information</td>
+                </tr>
+            </table>
+        </section>
+        
+        <section id="typography">
+            <h2>Typography</h2>
+            <p>The typography selection focuses on readability, professionalism, and clarity - essential qualities for a healthcare management system.</p>
+            
+            <div class="font-sample">
+                <h3>Primary Heading Font: Montserrat</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 24px;">This is a heading in Montserrat Bold</p>
+                <p style="font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 20px;">This is a subheading in Montserrat Medium</p>
+                <p><strong>Usage:</strong> All headings (h1-h6), navigation items, and important labels</p>
+                <p><strong>Weights:</strong> 600 for main headings, 500 for subheadings</p>
+                <p><strong>Sizes:</strong> 32px (h1), 24px (h2), 20px (h3), 18px (h4)</p>
+            </div>
+            
+            <div class="font-sample">
+                <h3>Body Font: Open Sans</h3>
+                <p style="font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 16px;">This is regular body text in Open Sans Regular. The quick brown fox jumps over the lazy dog.</p>
+                <p style="font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 16px;">This is emphasized body text in Open Sans SemiBold. The quick brown fox jumps over the lazy dog.</p>
+                <p><strong>Usage:</strong> All body text, form fields, buttons, and general content</p>
+                <p><strong>Weights:</strong> 400 for regular text, 600 for emphasis</p>
+                <p><strong>Size:</strong> 16px for standard text, 14px for secondary information</p>
+            </div>
+            
+            <div class="font-sample">
+                <h3>Monospace Font: Roboto Mono</h3>
+                <p style="font-family: 'Roboto Mono', monospace; font-size: 14px;">This is text in Roboto Mono. Used for patient IDs, medical codes, etc.</p>
+                <p><strong>Usage:</strong> Patient IDs, medical codes, system identifiers</p>
+                <p><strong>Weight:</strong> 400 (Regular)</p>
+                <p><strong>Size:</strong> 14px</p>
+            </div>
+        </section>
+        
+        <section id="wireframe">
+            <h2>Wireframes</h2>
+            <p>Below are basic wireframes representing the mobile and desktop layouts for the MediTrack home page (dashboard).</p>
+            
+            <div class="wireframes">
+                <div class="wireframe wireframe-mobile">
+                    <div class="wireframe-header">
+                        <h3>Mobile View</h3>
+                    </div>
+                    <div class="wireframe-content">
+<pre>
+┌─────────────────────┐
+│     MediTrack       │
+│    [Menu Icon]      │
+├─────────────────────┤
+│                     │
+│  Welcome, Dr. Smith │
+│                     │
+├─────────────────────┤
+│ ┌─────────────────┐ │
+│ │  Appointments   │ │
+│ │                 │ │
+│ │ Today: 8        │ │
+│ │ [View All]      │ │
+│ └─────────────────┘ │
+│                     │
+│ ┌─────────────────┐ │
+│ │  Patient Search │ │
+│ │ [Search Field]  │ │
+│ └─────────────────┘ │
+│                     │
+│ ┌─────────────────┐ │
+│ │ Recent Patients │ │
+│ │                 │ │
+│ │ - Jane Doe      │ │
+│ │ - John Smith    │ │
+│ │ - Mary Johnson  │ │
+│ │                 │ │
+│ │ [View All]      │ │
+│ └─────────────────┘ │
+│                     │
+│ ┌─────────────────┐ │
+│ │     Stats       │ │
+│ │                 │ │
+│ │ [Chart Display] │ │
+│ │                 │ │
+│ └─────────────────┘ │
+│                     │
+├─────────────────────┤
+│ [Home] [Patients]   │
+│ [Records] [Admin]   │
+└─────────────────────┘
+</pre>
+                    </div>
+                </div>
+                
+                <div class="wireframe wireframe-desktop">
+                    <div class="wireframe-header">
+                        <h3>Desktop View</h3>
+                    </div>
+                    <div class="wireframe-content">
+<pre>
+┌────────────────────────────────────────────────────────────────────────────┐
+│ MediTrack          [Search Bar]                          [User] [Logout]   │
+├────────────────────────────────────────────────────────────────────────────┤
+│                                                                            │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐     │
+│  │ Patient  │  │Appointment│  │ Medical  │  │   Lab    │  │   Admin  │     │
+│  │Management│  │Scheduling │  │ Records  │  │ Results  │  │ Dashboard│     │
+│  └──────────┘  └──────────┘  └──────────┘  └──────────┘  └──────────┘     │
+│                                                                            │
+│  ┌──────────────────────────┐  ┌──────────────────────────────────┐       │
+│  │                          │  │                                  │       │
+│  │   Today's Appointments   │  │        Patient Statistics        │       │
+│  │                          │  │                                  │       │
+│  │ - 9:00 John Smith        │  │ ┌─────┐  ┌─────┐  ┌─────┐       │       │
+│  │ - 9:30 Maria Rodriguez   │  │ │     │  │     │  │     │       │       │
+│  │ - 10:15 David Johnson    │  │ │  □  │  │  □  │  │  □  │       │       │
+│  │ - 11:00 Sarah Williams   │  │ │     │  │     │  │     │       │       │
+│  │                          │  │ └─────┘  └─────┘  └─────┘       │       │
+│  │ [View All Appointments]  │  │  New     Returning  Total       │       │
+│  │                          │  │                                  │       │
+│  └──────────────────────────┘  └──────────────────────────────────┘       │
+│                                                                            │
+│  ┌──────────────────────────┐  ┌──────────────────────────────────┐       │
+│  │                          │  │                                  │       │
+│  │     Recent Patients      │  │     Department Utilization       │       │
+│  │                          │  │                                  │       │
+│  │ - Emma Davis             │  │ [Bar Chart Showing Department    │       │
+│  │   Last Visit: 04/03/25   │  │  Utilization Percentages]        │       │
+│  │                          │  │                                  │       │
+│  │ - Michael Brown          │  │                                  │       │
+│  │   Last Visit: 04/02/25   │  │                                  │       │
+│  │                          │  │                                  │       │
+│  │ [View All Patients]      │  │ [View Detailed Analytics]        │       │
+│  └──────────────────────────┘  └──────────────────────────────────┘       │
+│                                                                            │
+├────────────────────────────────────────────────────────────────────────────┤
+│ © 2025 MediTrack | Privacy Policy | Terms of Use | Support                 │
+└────────────────────────────────────────────────────────────────────────────┘
+</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2025 MediTrack Hospital Management System Site Plan</p>
+        </footer>
+    </div>
+</body>
+</html>
