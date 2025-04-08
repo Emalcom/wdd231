@@ -600,3 +600,231 @@ footer {
     font-size: 0.8rem;
     margin-top: 0.5rem;
 }
+/* Discover Page Styles */
+.discover-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.welcome-message {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: var(--background-light);
+    border-radius: 8px;
+}
+
+.visit-info {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+
+/* Discover Grid Styling with Animation */
+.discover-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(240,240,250,0.9) 100%);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Animated background effect */
+.discover-grid::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(220, 230, 255, 0.2),
+        rgba(230, 240, 255, 0.3),
+        rgba(240, 245, 255, 0.2),
+        rgba(250, 250, 255, 0.3)
+    );
+    z-index: -1;
+    animation: shimmer 15s linear infinite;
+    transform: rotate(30deg);
+}
+
+@keyframes shimmer {
+    0% {
+        transform: rotate(30deg) translate(-10%, -10%);
+    }
+    50% {
+        transform: rotate(30deg) translate(10%, 10%);
+    }
+    100% {
+        transform: rotate(30deg) translate(-10%, -10%);
+    }
+}
+
+/* Place Card Styling */
+.place-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.place-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.img-container {
+    height: 200px;
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.place-card:hover .img-container img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.address {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.description {
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Animation for when images load */
+.lazy-img {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.lazy-img.loaded {
+    opacity: 1;
+}
+
+/* Welcome message styling */
+/*.welcome-message {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/*.visit-info {
+    font-style: italic;
+    color: #2d71b5;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: rgba(45, 113, 181, 0.1);
+    border-radius: 5px;
+    display: inline-block;
+}*/
+
+/* Responsive adjustments */
+@media screen and (min-width: 768px) {
+    .discover-grid {
+        grid-template-columns: 1fr 1fr;
+        padding: 3rem 2rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .discover-grid {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 4rem 2rem;
+    }
+}
+.discover-card h2 {
+    grid-area: title;
+    margin: 0;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    text-align: center;
+}
+
+.discover-card figure {
+    grid-area: image;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.discover-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.discover-card address {
+    grid-area: address;
+    padding: 1rem;
+    font-style: normal;
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+}
+
+.discover-card p {
+    grid-area: description;
+    padding: 1rem;
+    margin: 0;
+}
+
+.discover-card .learn-more {
+    grid-area: button;
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+    border: none;
+    padding: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.discover-card .learn-more:hover {
+    background-color: #f9b234;
+}
+
+/* Hide hover effects on mobile */
+@media screen and (max-width: 640px) {
+    .discover-card img:hover {
+        transform: none;
+    }
+}

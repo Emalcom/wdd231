@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover page showcasing local attractions and businesses in our community">
+    <meta name="author" content="Malcom Engwedu">
+
+    <meta property="og:title" content="Discover - Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/chamber-logo.webp">
+    <meta property="og:url" content="https://yoursite.com/chamber/discover.html">
+
+    <title>Discover - Chamber of Commerce</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/medium.css">
+    <link rel="stylesheet" href="css/large.css">
+
+    <script src="script/discover.js" defer></script>
+    <script src="script/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/favicon.svg" alt="Chamber of Commerce Logo">
+            <h1>Chamber of Commerce</h1>
+        </div>
+        <nav>
+            <button id="hamburgerBtn"><span>&#9776;</span><span>X</span></button>
+            <ul id="primaryNav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li class="active"><a href="discover.html">Discover</a></li>
+                <li><a href="join.html">Join</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="discover-main">
+        <section class="welcome-message">
+            <h2>Discover Our Community</h2>
+            <p>Explore the hidden gems and popular attractions that make our community special.</p>
+            <div id="visit-message" class="visit-info">
+                <!-- This will be populated with JavaScript based on localStorage -->
+            </div>
+        </section>
+        
+        <div class="discover-grid">
+            <!-- Cards will be dynamically loaded from JSON data -->
+        </div>
+    </main>
+    <footer>
+        <div class="footer-top">
+            <div class="footer-logo">
+                <img src="images/favicon.svg" alt="Chamber of Commerce Logo">
+                <h3>Chamber of Commerce</h3>
+                <p>123 Main Street</p>
+                <P>City, ST 12345</P>
+            </div>
+            <div class="contact-info">
+                <p>info@chamberofcommerce.org</p>
+                <p>(555) 123-4567</p>
+                <div class="social-media">
+                    <a href="#"><img src="images/facebook-svgrepo-com.svg" alt="Facebook"></a>
+                    <a href="#"><img src="images/twitter-logo-svgrepo-com.svg" alt="Twitter"></a>
+                    <a href="#"><img src="images/instagram-2-1-logo-svgrepo-com.svg" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentyear"></span></p>
+            <p>Last Modified: <span id="lastModified"></span></p>
+        </div>
+    </footer>
+</body>
+</html>

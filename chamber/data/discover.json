@@ -1,0 +1,52 @@
+{
+    "places": [
+      {
+        "name": "Heritage City Museum",
+        "address": "123 History Lane, Downtown",
+        "description": "Explore the rich history of our community through interactive exhibits and rare artifacts dating back to the early settlers. The museum features rotating exhibits and educational programs for all ages.",
+        "image": "museum.webp"
+      },
+      {
+        "name": "Riverside Park",
+        "address": "450 River Road, East Side",
+        "description": "A beautiful 50-acre park along the river featuring walking trails, picnic areas, and a playground. The park hosts concerts in the summer and has stunning views of the water and wildlife.",
+        "image": "park.webp"
+      },
+      {
+        "name": "Artisan Marketplace",
+        "address": "78 Craft Street, Arts District",
+        "description": "A vibrant indoor market featuring over 40 local artisans selling handcrafted goods, from jewelry to furniture. Visit on weekends for live demonstrations and workshops.",
+        "image": "Market.webp"
+      },
+      {
+        "name": "Historic Main Street",
+        "address": "Main Street, Downtown",
+        "description": "Stroll through our charming downtown with restored 19th-century buildings now housing boutique shops, cafes, and galleries. Don't miss the guided walking tours every Saturday morning.",
+        "image": "main-street.webp"
+      },
+      {
+        "name": "Summit Lookout Point",
+        "address": "1200 Mountain Drive, North Ridge",
+        "description": "Hike to this stunning viewpoint offering panoramic views of the entire valley. The moderate 2-mile trail is well-maintained and features educational signs about local geology and wildlife.",
+        "image": "Lookout.webp"
+      },
+      {
+        "name": "Oakwood Vineyards",
+        "address": "555 Vine Lane, West County",
+        "description": "Award-winning local winery offering tours and tastings of their signature varietals. Their seasonal farm-to-table restaurant uses ingredients grown on the property.",
+        "image": "Vineyard.webp"
+      },
+      {
+        "name": "Tech Innovation Center",
+        "address": "8900 Progress Way, Business Park",
+        "description": "A hub for local entrepreneurs and tech startups featuring co-working spaces, educational workshops, and networking events. Public tours are available every Thursday.",
+        "image": "Tech-Innovation-center.webp"
+      },
+      {
+        "name": "Cultural Arts Center",
+        "address": "67 Performance Plaza, Arts District",
+        "description": "Home to our community theater, art gallery, and music conservatory. Check their calendar for upcoming performances, exhibitions, and classes for all ages and skill levels.",
+        "image": "cultural-center.webp"
+      }
+    ]
+  }

@@ -96,3 +96,34 @@
         height: calc(50% - 0.75rem);
     }
 }
+/* Medium screens (641px to 1024px) */
+@media screen and (min-width: 641px) {
+    .discover-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    
+    /* Add image hover effect for medium screens */
+    .discover-card img:hover {
+        transform: scale(1.05);
+    }
+    
+    /* Alternate card layouts */
+    .discover-card:nth-child(odd) {
+        grid-template-areas:
+            "title title"
+            "image description"
+            "address description"
+            "button button";
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .discover-card:nth-child(even) {
+        grid-template-areas:
+            "title title"
+            "description image"
+            "description address"
+            "button button";
+        grid-template-columns: 1fr 1fr;
+    }
+}
