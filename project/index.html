@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MediTrack - A comprehensive hospital management system to streamline healthcare administrative workflows">
+    <!-- Social media metadata -->
+    <meta property="og:title" content="MediTrack - Hospital Management System">
+    <meta property="og:description" content="Streamline healthcare workflows with our comprehensive hospital management solution">
+    <meta property="og:image" content="images/meditrack-logo.png">
+    <meta property="og:url" content="https://emalcom.github.io/wdd231/project/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <title>MediTrack - Hospital Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+    <div class="mode-toggle">
+        <button id="mode-switch" aria-label="Toggle day/night mode">
+            <span class="mode-icon">☀️</span>
+        </button>
+    </div>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/health-data.png" alt="MediTrack Logo" class="lazy-load">
+                <h1>MediTrack</h1>
+            </div>
+            <div class="search-container">
+                <input type="search" placeholder="Search patients, appointments..." aria-label="Search">
+                <button type="submit" aria-label="Submit search">🔍</button>
+            </div>
+            <div class="user-controls">
+                <span class="user-profile">Dr. Smith</span>
+                <button class="logout-btn">Logout</button>
+            </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+        <nav>
+            <ul class="main-nav">
+                <li><a href="index.html" class="active">Dashboard</a></li>
+                <li><a href="patients.html">Patient Management</a></li>
+                <li><a href="appointments.html">Appointment Scheduling</a></li>
+                <li><a href="medical-records.html">Medical Records</a></li>
+                <li><a href="lab-results.html">Lab Results</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-banner">
+            <div class="container">
+                <h2>Welcome, Dr. Smith</h2>
+                <p>Today is <span id="current-date"></span> | <span id="weather-info">Loading weather...</span></p>
+            </div>
+        </section>
+
+        <div class="dashboard-grid container">
+            <section class="dashboard-card appointments-card">
+                <h3>Today's Appointments</h3>
+                <ul class="appointment-list" id="today-appointments">
+                    <!-- This will be populated by JavaScript -->
+                    <li class="appointment-loading">Loading appointments...</li>
+                </ul>
+                <button class="view-all-btn" id="view-all-appointments">View All Appointments</button>
+            </section>
+
+            <section class="dashboard-card stats-card">
+                <h3>Patient Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-number" id="new-patients">0</div>
+                        <div class="stat-label">New</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="returning-patients">0</div>
+                        <div class="stat-label">Returning</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="total-patients">0</div>
+                        <div class="stat-label">Total</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="dashboard-card patients-card">
+                <h3>Recent Patients</h3>
+                <ul class="patient-list" id="recent-patients">
+                    <!-- This will be populated by JavaScript -->
+                    <li class="patient-loading">Loading patients...</li>
+                </ul>
+                <button class="view-all-btn">View All Patients</button>
+            </section>
+
+            <section class="dashboard-card utilization-card">
+                <h3>Department Utilization</h3>
+                <div class="chart-container" id="department-chart">
+                    <!-- This will be populated by JavaScript -->
+                    <p>Loading chart data...</p>
+                </div>
+                <button class="view-details-btn" id="view-analytics">View Detailed Analytics</button>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/health-data.png" alt="MediTrack Logo" class="lazy-load">
+                    <p>MediTrack - Hospital Management System</p>
+                </div>
+                <div class="social-media">
+                    <a href="#"><img src="images/facebook-svgrepo-com.svg" alt="Facebook"></a>
+                    <a href="#"><img src="images/twitter-logo-svgrepo-com.svg" alt="Twitter"></a>
+                    <a href="#"><img src="images/instagram-2-1-logo-svgrepo-com.svg" alt="Instagram"></a>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="attributions.html">Attributions</a></li>
+                    </ul>
+                </div>
+            </div> 
+            <div class="copyright">
+                <p>&copy; <span id="currentyear"></span> 2025 MediTrack. All rights reserved.</p>
+            <p id="lastModified"></p>
+            </div>
+            
+        </div>
+    </footer>
+
+    <!-- Analytics Modal -->
+    <div class="modal" id="analytics-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Department Analytics</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="analytics-container" id="detailed-analytics">
+                    <!-- This will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/lazyload.js" defer></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

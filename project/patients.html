@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MediTrack Patient Management - Register, search and manage patient information efficiently">
+    <!-- Social media metadata -->
+    <meta property="og:title" content="MediTrack - Patient Management">
+    <meta property="og:description" content="Efficiently manage patient records and information">
+    <meta property="og:image" content="images/meditrack-logo.png">
+    <meta property="og:url" content="https://emalcom.github.io/wdd231/project/patients.html">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <title>Patient Management - MediTrack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+    <div class="mode-toggle">
+        <button id="mode-switch" aria-label="Toggle day/night mode">
+            <span class="mode-icon">☀️</span>
+        </button>
+    </div>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/health-data.png" alt="MediTrack Logo" class="lazy-load">
+                <h1>MediTrack</h1>
+            </div>
+            <div class="search-container">
+                <input type="search" placeholder="Search patients by name or ID..." aria-label="Search patients">
+                <button type="submit" aria-label="Submit search">🔍</button>
+            </div>
+            <div class="user-controls">
+                <span class="user-profile">Dr. Smith</span>
+                <button class="logout-btn">Logout</button>
+            </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+        <nav>
+            <ul class="main-nav">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="patients.html" class="active">Patient Management</a></li>
+                <li><a href="appointments.html">Appointment Scheduling</a></li>
+                <li><a href="medical-records.html">Medical Records</a></li>
+                <li><a href="lab-results.html">Lab Results</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-title">
+            <div class="container">
+                <h2>Patient Management</h2>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="action-buttons">
+                <button class="primary-btn" id="add-patient-btn">Add New Patient</button>
+                <button class="secondary-btn" id="import-btn">Import Patient Data</button>
+                <button class="secondary-btn" id="export-btn">Export Patient List</button>
+            </div>
+
+            <section class="patient-management">
+                <div class="filter-options">
+                    <div class="filter-group">
+                        <label for="status-filter">Status:</label>
+                        <select id="status-filter">
+                            <option value="all">All Patients</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="department-filter">Department:</label>
+                        <select id="department-filter">
+                            <option value="all">All Departments</option>
+                            <option value="cardiology">Cardiology</option>
+                            <option value="neurology">Neurology</option>
+                            <option value="pediatrics">Pediatrics</option>
+                            <option value="orthopedics">Orthopedics</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sort-by">Sort By:</label>
+                        <select id="sort-by">
+                            <option value="name">Name</option>
+                            <option value="id">Patient ID</option>
+                            <option value="date">Last Visit</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="patients-table-container">
+                    <table class="patients-table">
+                        <thead>
+                            <tr>
+                                <th>Patient ID</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Last Visit</th>
+                                <th>Primary Doctor</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="patients-table-body">
+                            <!-- This will be populated by JavaScript -->
+                            <tr>
+                                <td colspan="8" class="loading-message">Loading patient data...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <button class="pagination-btn" id="prev-page" disabled>Previous</button>
+                    <span class="page-indicator">Page <span id="current-page">1</span> of <span id="total-pages">1</span></span>
+                    <button class="pagination-btn" id="next-page">Next</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/health-data.png" alt="MediTrack Logo" class="lazy-load">
+                    <p>MediTrack - Hospital Management System</p>
+                </div>
+                <div class="social-media">
+                    <a href="#"><img src="images/facebook-svgrepo-com.svg" alt="Facebook"></a>
+                    <a href="#"><img src="images/twitter-logo-svgrepo-com.svg" alt="Twitter"></a>
+                    <a href="#"><img src="images/instagram-2-1-logo-svgrepo-com.svg" alt="Instagram"></a>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="attributions.html">Attributions</a></li>
+                    </ul>
+                </div>
+            </div> 
+            <p>&copy; <span id="currentyear"></span> 2025 MediTrack. All rights reserved.</p>
+            <p id="lastModified"></p>
+        </div>
+    </footer>
+
+    <!-- Add Patient Modal -->
+    <div class="modal" id="add-patient-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Patient</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="add-patient-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patient-first-name">First Name:</label>
+                            <input type="text" id="patient-first-name" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-last-name">Last Name:</label>
+                            <input type="text" id="patient-last-name" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patient-dob">Date of Birth:</label>
+                            <input type="date" id="patient-dob" name="dob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-gender">Gender:</label>
+                            <select id="patient-gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patient-phone">Phone Number:</label>
+                            <input type="tel" id="patient-phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-email">Email:</label>
+                            <input type="email" id="patient-email" name="email">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="patient-address">Address:</label>
+                        <textarea id="patient-address" name="address" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patient-department">Department:</label>
+                            <select id="patient-department" name="department" required>
+                                <option value="">Select Department</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="pediatrics">Pediatrics</option>
+                                <option value="orthopedics">Orthopedics</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-doctor">Assigned Doctor:</label>
+                            <select id="patient-doctor" name="doctor" required>
+                                <option value="">Select Doctor</option>
+                                <!-- This will be populated by JavaScript -->
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="patient-notes">Medical Notes:</label>
+                        <textarea id="patient-notes" name="notes" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="secondary-btn cancel-btn">Cancel</button>
+                        <button type="submit" class="primary-btn">Add Patient</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/lazyload.js" defer></script>
+    <script type="module" src="js/patients.js"></script>
+</body>
+</html>

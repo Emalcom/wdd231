@@ -1,0 +1,93 @@
+{
+    "hospitalData": {
+      "name": "Central City Medical Center",
+      "beds": {
+        "total": 500,
+        "occupied": 347,
+        "available": 153
+      },
+      "staff": {
+        "doctors": 87,
+        "nurses": 215,
+        "administrative": 62,
+        "other": 43
+      }
+    },
+    "patients": [
+      {
+        "id": "P-10042",
+        "name": "Emma Johnson",
+        "age": 34,
+        "gender": "Female",
+        "bloodType": "A+",
+        "address": "123 Maple Street, Central City",
+        "phone": "555-123-4567",
+        "insurance": "BlueCross",
+        "admitDate": "2025-04-08",
+        "condition": "Hypertension",
+        "doctor": "Dr. Smith",
+        "visits": [
+          {
+            "date": "2025-04-08",
+            "reason": "Annual Checkup",
+            "notes": "Blood pressure elevated at 140/90. Prescribed Lisinopril 10mg daily."
+          },
+          {
+            "date": "2024-12-15",
+            "reason": "Follow-up",
+            "notes": "Blood pressure stable at 130/85. Continue current medication regimen."
+          }
+        ]
+      },
+      {
+        "id": "P-10078",
+        "name": "Michael Smith",
+        "age": 56,
+        "gender": "Male",
+        "bloodType": "O+",
+        "address": "456 Oak Avenue, Central City",
+        "phone": "555-987-6543",
+        "insurance": "Medicare",
+        "admitDate": "2025-04-10",
+        "condition": "Diabetes Type 2",
+        "doctor": "Dr. Patel",
+        "visits": [
+          {
+            "date": "2025-04-10",
+            "reason": "Glucose Monitoring",
+            "notes": "A1C levels improved to 7.2 from 8.1. Diet compliance has improved."
+          },
+          {
+            "date": "2025-01-22",
+            "reason": "Medication Review",
+            "notes": "Adjusted Metformin dosage to 1000mg twice daily."
+          }
+        ]
+      },
+      {
+        "id": "P-10091",
+        "name": "Sophia Garcia",
+        "age": 28,
+        "gender": "Female",
+        "bloodType": "B-",
+        "address": "789 Pine Lane, Central City",
+        "phone": "555-456-7890",
+        "insurance": "Aetna",
+        "admitDate": "2025-04-11",
+        "condition": "Pregnancy - 2nd Trimester",
+        "doctor": "Dr. Johnson",
+        "visits": [
+          {
+            "date": "2025-04-11",
+            "reason": "Prenatal Checkup",
+            "notes": "Fetal heartbeat normal at 150 BPM. No complications observed."
+          },
+          {
+            "date": "2025-03-14",
+            "reason": "Ultrasound",
+            "notes": "Healthy development confirmed. Gender reveal declined by patient."
+          }
+        ]
+      }
+    ]
+  }

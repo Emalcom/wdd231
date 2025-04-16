@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MediTrack - Lab Results Management">
+    <!-- Social media metadata -->
+    <meta property="og:title" content="MediTrack - Lab Results Management">
+    <meta property="og:description" content="Access and manage patient laboratory test results with our comprehensive system">
+    <meta property="og:image" content="images/meditrack-logo.png">
+    <meta property="og:url" content="https://emalcom.github.io/wdd231/project/lab-results.html">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <title>Lab Results - MediTrack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+    <div class="mode-toggle">
+        <button id="mode-switch" aria-label="Toggle day/night mode">
+            <span class="mode-icon">☀️</span>
+        </button>
+    </div>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/health-data.png" alt="MediTrack Logo" class="lazy-load">
+                <h1>MediTrack</h1>
+            </div>
+            <div class="search-container">
+                <input type="search" placeholder="Search lab results..." aria-label="Search">
+                <button type="submit" aria-label="Submit search">🔍</button>
+            </div>
+            <div class="user-controls">
+                <span class="user-profile">Dr. Smith</span>
+                <button class="logout-btn">Logout</button>
+            </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+        <nav>
+            <ul class="main-nav">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="patients.html">Patient Management</a></li>
+                <li><a href="appointments.html">Appointment Scheduling</a></li>
+                <li><a href="medical-records.html">Medical Records</a></li>
+                <li><a href="lab-results.html" class="active">Lab Results</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-banner">
+            <div class="container">
+                <h2>Laboratory Results</h2>
+                <p>Review, analyze, and manage patient lab test results</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="action-buttons">
+                <button class="primary-btn" id="upload-results-btn">Upload Results</button>
+                <button class="secondary-btn" id="order-test-btn">Order New Test</button>
+                <button class="secondary-btn" id="export-results-btn">Export Selected</button>
+                <button class="secondary-btn" id="print-results-btn">Print Selected</button>
+            </div>
+
+            <div class="filters-container dashboard-card">
+                <h3>Filter Results</h3>
+                <form id="results-filters" class="filter-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patient-search">Patient</label>
+                            <input type="text" id="patient-search" placeholder="Search by ID or name">
+                        </div>
+                        <div class="form-group">
+                            <label for="test-type">Test Type</label>
+                            <select id="test-type">
+                                <option value="">All Tests</option>
+                                <option value="blood">Blood Tests</option>
+                                <option value="urine">Urine Analysis</option>
+                                <option value="imaging">Imaging</option>
+                                <option value="pathology">Pathology</option>
+                                <option value="microbiology">Microbiology</option>
+                                <option value="genetic">Genetic Tests</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="results-status">Status</label>
+                            <select id="results-status">
+                                <option value="">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="completed">Completed</option>
+                                <option value="abnormal">Abnormal</option>
+                                <option value="critical">Critical</option>
+                                <option value="ordered">Ordered</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="test-date-range">Date Range</label>
+                            <select id="test-date-range">
+                                <option value="all">All Time</option>
+                                <option value="today">Today</option>
+                                <option value="week">Past Week</option>
+                                <option value="month">Past Month</option>
+                                <option value="custom">Custom Range</option>
+                            </select>
+                        </div>
+                        <div class="form-group custom-date-range" style="display: none;">
+                            <label for="test-date-from">From</label>
+                            <input type="date" id="test-date-from">
+                        </div>
+                        <div class="form-group custom-date-range" style="display: none;">
+                            <label for="test-date-to">To</label>
+                            <input type="date" id="test-date-to">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="secondary-btn" id="reset-test-filters">Reset</button>
+                        <button type="submit" class="primary-btn">Apply Filters</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="patients-table-container">
+                <table class="patients-table" id="lab-results-table">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="select-all-results" aria-label="Select all results"></th>
+                            <th>Patient ID</th>
+                            <th>Patient Name</th>
+                            <th>Test Type</th>
+                            <th>Test Date</th>
+                            <th>Results Date</th>
+                            <th>Status</th>
+                            <th>Ordered By</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-list">
+                        <!-- This will be populated by JavaScript -->
+                        <tr>
+                            <td colspan="9" class="patient-loading">Loading lab results...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <button class="pagination-btn" id="prev-results-page" disabled>&laquo; Previous</button>
+                <span class="page-indicator">Page <span id="current-results-page">1</span> of <span id="total-results-pages">1</span></span>
+                <button class="pagination-btn" id="next-results-page">Next &raquo;</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/health-data.png" alt="MediTrack Logo" class="lazy-load">
+                    <p>MediTrack - Hospital Management System</p>
+                </div>
+                <div class="social-media">
+                    <a href="#"><img src="images/facebook-svgrepo-com.svg" alt="Facebook"></a>
+                    <a href="#"><img src="images/twitter-logo-svgrepo-com.svg" alt="Twitter"></a>
+                    <a href="#"><img src="images/instagram-2-1-logo-svgrepo-com.svg" alt="Instagram"></a>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="attributions.html">Attributions</a></li>
+                    </ul>
+                </div>
+            </div> 
+            <p>&copy; <span id="currentyear"></span> 2025 MediTrack. All rights reserved.</p>
+            <p id="lastModified"></p>
+        </div>
+    </footer>
+
+    <!-- Upload Results Modal -->
+    <div class="modal" id="upload-results-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Upload Lab Results</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="upload-results-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="upload-patient-id">Patient ID*</label>
+                            <input type="text" id="upload-patient-id" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="upload-test-type">Test Type*</label>
+                            <select id="upload-test-type" required>
+                                <option value="">Select Test Type</option>
+                                <option value="blood">Blood Tests</option>
+                                <option value="urine">Urine Analysis</option>
+                                <option value="imaging">Imaging</option>
+                                <option value="pathology">Pathology</option>
+                                <option value="microbiology">Microbiology</option>
+                                <option value="genetic">Genetic Tests</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="upload-test-date">Test Date*</label>
+                            <input type="date" id="upload-test-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="upload-result-status">Result Status*</label>
+                            <select id="upload-result-status" required>
+                                <option value="normal">Normal</option>
+                                <option value="abnormal">Abnormal</option>
+                                <option value="critical">Critical</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="result-summary">Result Summary*</label>
+                        <textarea id="result-summary" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="result-files">Upload Files*</label>
+                        <input type="file" id="result-files" multiple required>
+                        <p class="file-info">Supported formats: PDF, JPEG, PNG, CSV. Max 20MB per file.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="result-notes">Notes for Healthcare Provider</label>
+                        <textarea id="result-notes" rows="3"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="secondary-btn close-modal-btn">Cancel</button>
+                        <button type="submit" class="primary-btn">Upload Results</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Result Modal -->
+    <div class="modal" id="view-result-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="view-result-title">Lab Result Details</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="result-details-container">
+                <!-- This will be populated by JavaScript -->
+                <div class="patient-loading">Loading result details...</div>
+            </div>
+            <div class="modal-footer">
+                <button class="secondary-btn close-modal-btn">Close</button>
+                <button class="primary-btn" id="download-result-btn">Download</button>
+                <button class="secondary-btn" id="print-result-btn">Print</button>
+                <button class="secondary-btn" id="share-result-btn">Share</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Test Modal -->
+    <div class="modal" id="order-test-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Order New Laboratory Test</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="order-test-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="order-patient-id">Patient ID*</label>
+                            <input type="text" id="order-patient-id" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="order-test-category">Test Category*</label>
+                            <select id="order-test-category" required>
+                                <option value="">Select Category</option>
+                                <option value="blood">Blood Tests</option>
+                                <option value="urine">Urine Analysis</option>
+                                <option value="imaging">Imaging</option>
+                                <option value="pathology">Pathology</option>
+                                <option value="microbiology">Microbiology</option>
+                                <option value="genetic">Genetic Tests</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="specific-tests">Specific Tests*</label>
+                        <select id="specific-tests" multiple size="5" required>
+                            <option value="">Please select a category first</option>
+                        </select>
+                        <p class="help-text">Hold Ctrl/Cmd to select multiple tests</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="test-priority">Priority</label>
+                        <select id="test-priority">
+                            <option value="routine">Routine</option>
+                            <option value="urgent">Urgent</option>
+                            <option value="stat">STAT (Immediate)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="clinical-info">Clinical Information</label>
+                        <textarea id="clinical-info" rows="4" placeholder="Include relevant clinical information, symptoms, or diagnosis"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="special-instructions">Special Instructions</label>
+                        <textarea id="special-instructions" rows="3" placeholder="Any special requirements or instructions for the laboratory"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="secondary-btn close-modal-btn">Cancel</button>
+                        <button type="submit" class="primary-btn">Submit Order</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/lazyload.js" defer></script>
+    <script type="module" src="js/lab-results.js"></script>
+</body>
+</html>
